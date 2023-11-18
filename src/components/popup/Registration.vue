@@ -265,7 +265,7 @@
             background: $btn-gold;
             cursor: pointer;
             &:hover{
-                background: $btn-hover;
+                box-shadow: inset 330px 0 0 0 $btn-hover;
             }
         }
     }

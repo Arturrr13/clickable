@@ -64,6 +64,7 @@
     }
     .become--vip{
         @include button($btn-gold, 15px, 56px, 56px);
+        z-index: 1;
         margin-top: 101px;
         backdrop-filter: blur(10px);
         color: #0B0B0A;
@@ -72,7 +73,7 @@
         line-height: 1.25em;
         text-transform: uppercase;
         &:hover{
-            background: $btn-hover;
+            box-shadow: inset 0 60px 0 0 $btn-hover;
         }
     }
     .diamond--1{
