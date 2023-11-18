@@ -1,0 +1,99 @@
+@use "sass:math";
+
+@mixin button($bg, $plr, $ptb, $br){
+    background: $bg;
+    padding: $plr $ptb;
+    border: none;
+    border-radius: $br;
+}
+
+@mixin text($lh, $c, $fs, $fw, $ls, $ff: false, $tt: false){
+    font-size: $fs;
+    font-weight: $fw;
+    line-height: $lh;
+    letter-spacing: $ls;
+    color: $c;
+    font-family: $ff;
+    @if $ff == true {
+        font-family: 'Gotham Pro';
+    } @else {
+        font-family: 'Stolzl';
+    }
+    @if $tt == true {
+        text-transform: uppercase;
+    } @else {
+        text-transform: none;
+    }
+}
+
+@mixin flex($justify, $align, $direc: false){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    @if $direc == true {
+        flex-direction: row;
+    } @else {
+        flex-direction: column;
+    }
+}
+
+@mixin ellipse($bg, $s, $f, $t, $b, $r, $l, $pos){
+    background: $bg;
+    width: $s;
+    height: $s;
+    border-radius: 50%;
+    filter: blur($f);
+    position: absolute;
+    @if $pos == 't' {
+        top: $t;
+    } @else if $pos == 'tr' {
+        top: $t;
+        right: $r;
+    } @else if $pos == 'br' {
+        bottom: $b;
+        right: $r;
+    } @else if $pos == 'bl' {
+        bottom: $b;
+        left: $l;
+    };
+}
+
+@mixin imageEl($w, $h, $rt, $t, $b, $r, $l, $pos){
+    max-width: $w;
+    max-height: $h;
+    transform: rotate($rt);
+    position: absolute;
+    z-index: 1;
+    img{
+        width: 100%;
+    }
+    @if $pos == 'tl' {
+        top: $t;
+        left: $l;
+    } @else if $pos == 'tr' {
+        top: $t;
+        right: $r;
+    } @else if $pos == 'bl' {
+        bottom: $b;
+        left: $l;
+    };
+}
+
+@mixin bonanzaEl($w, $h, $t, $b, $r, $l, $pos){
+    max-width: $w;
+    max-height: $h;
+    position: absolute;
+    img{
+        width: 100%;
+    }
+    @if $pos == 'tl' {
+        top: $t;
+        left: $l;
+    } @else if $pos == 'tr' {
+        top: $t;
+        right: $r;
+    } @else if $pos == 'bl' {
+        bottom: $b;
+        left: $l;
+    };
+}

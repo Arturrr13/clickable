@@ -63,11 +63,7 @@
                 <div class="girl__wrapper">
                     <img src="../../assets/image/sweetBonanza/girl.png" alt="girl">
                 </div>
-                <div class="ellipse--1"></div>
-                <div class="ellipse--2"></div>
-                <div class="ellipse--3"></div>
-                <div class="ellipse--4"></div>
-                <div class="ellipse--5"></div>
+                <div v-for="index of 5" :key="index" :class="`ellipse--${index}`"></div>
             </div>
         </div>
         <div class="from__wrapper">
@@ -127,10 +123,8 @@
 
 <style lang="scss" scoped>
     .game__wrapper{
-        background: linear-gradient(180deg, #130625 0%, #1B0929 100%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        background: $bkg-gradient;
+        @include flex(normal, center, $direc: false);
         border-radius: 16px 0 0 16px;
     }
     .logo__wrapper{
@@ -164,53 +158,19 @@
         }
     }
     .ellipse--1{
-        width: 108px;
-        height: 108px;
-        border-radius: 50%;
-        background: #EBBE7D;
-        filter: blur(75px);
-        position: absolute;
-        top: 142px;
+        @include ellipse($text-gold, 108px, 75px, 142px, none, none, none, $pos: 't');
     }
     .ellipse--2{
-        width: 85px;
-        height: 85px;   
-        border-radius: 50%;
-        background: #EBBE7D;
-        filter: blur(59.02778244018555px);
-        position: absolute;
-        top: 152px;
-        right: 50px;
+        @include ellipse($text-gold, 85px, 60px, 152px, none, 50px, none, $pos: 'tr');
     }
     .ellipse--3{
-        width: 108px;
-        height: 108px;
-        border-radius: 50%;
-        background: #EBBE7D;
-        filter: blur(75px);
-        position: absolute;
-        right: 0;
-        bottom: 122px;
+        @include ellipse($text-gold, 108px, 75px, none, 122px, 0, none, $pos: 'br');
     }
     .ellipse--4{
-        width: 224px;
-        height: 224px;
-        border-radius: 50%;
-        background: #C20046;
-        filter: blur(102.16216278076172px);
-        position: absolute;
-        bottom: 55px;
-        left: 74px;
+        @include ellipse(#C20046, 224px, 102px, none, 55px, none, 74px, $pos: 'bl');
     }
     .ellipse--5{
-        width: 108px;
-        height: 108px;
-        border-radius: 50%;
-        background: #EBBE7D;
-        filter: blur(75px);
-        position: absolute;
-        bottom: -53px;
-        left: -20px;
+        @include ellipse($text-gold, 108px, 75px, none, -53px, none, -20px, $pos: 'bl');
     }
     .image__wrapper{
         position: relative;
@@ -220,72 +180,26 @@
         border-radius: 0 0 0 16px;
     }
     .candy__wrapper--1{
-        max-width: 75.892px;
-        max-height: 66.026px;
-        transform: rotate(8.779deg);
-        position: absolute;
-        top: 119px;
-        left: 14px;
-        z-index: 1;
-        img{
-            width: 100%;
-        }
+        @include imageEl(75px, 66px, 8.8deg, 119px, none, none, 14px, $pos: 'tl');
     }
     .candy__wrapper--2{
-        max-width: 105.691px;
-        max-height: 91.951px;
-        transform: rotate(-67deg);
-        position: absolute;
-        bottom: -27px;
-        left: 5px;
-        z-index: 1;
-        img{
-            width: 100%;
-        }
+        @include imageEl(105px, 92px, -67deg, none, -27px, none, 5px, $pos: 'bl');
     }
     .bomb__wrapper{
-        max-width: 138.923px;
-        max-height: 138.923px;
-        position: absolute;
-        top: 32px;
-        transform: rotate(-14.343deg);
-        right: -42px;
-        z-index: 1;
-        img{
-            width: 100%;
-        }
+        @include imageEl(139px, 139px, -14.4deg, 32px, none, -42px, none, $pos: 'tr');
     }
     .girl__wrapper{
-        position: absolute;
-        max-width: 365px;
-        max-height: 399.006px;
-        bottom: 0;
-        left: 8px;
-        position: absolute;
-        z-index: 1;
-        img{
-            width: 100%;
-        }
+        @include imageEl(365px, 400px, 0, none, 0, none, 8px, $pos: 'bl');
     }
     .gift--text{
-        color: #FCFCFC;
-        font-family: 'Stolzl';
-        font-size: 1em;
-        line-height: 1em;
-        letter-spacing: 0.32px;
-        text-transform: uppercase;
+        @include text(1em, $text-white, 1em, 400, 0.32px, $ff: false, $tt: true);
     }
     .gift--text__wrapper{
         text-align: center;
         margin: 47px 0 8px 0;
     }
     .cashback--text__wrapper span{
-        color: #E4C086;
-        font-family: 'Stolzl';
-        font-size: 1em;
-        line-height: 1em;
-        letter-spacing: 0.32px;
-        text-transform: uppercase;
+        @include text(1em, $text-gold, 1em, 400, 0.32px, $ff: false, $tt: true);
     }
     .registration__wrapper{
         position: absolute;
@@ -300,15 +214,12 @@
         height: 100%;
     }
     .from__wrapper{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        @include flex(normal, center, $direc: false);
         padding: 16px;
     }
     .btn__wrapper{
         width: 100%;
-        display: flex;
-        justify-content: flex-end;
+        @include flex(flex-end, normal, $direc: true);
     }
     .close__btn{
         width: 40px;
@@ -327,28 +238,17 @@
     }
 
     form{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        @include flex(normal, center, $direc: false);
     }
 
     h3{
-        color: #FCFCFC;
-        font-family: 'Stolzl';
-        font-size: 1.25em;
-        font-weight: 400;
-        line-height: 1.2em;
-        letter-spacing: 0.4px;
+        @include text(1.2em, $text-white, 1.25em, 400, 0.4px, $ff: false, $tt: false);
         margin: 48px 0;
     }
     .checkbox__wrapper{
         display: flex;
         span{
-            color: #999;
-            font-family: 'Stolzl';
-            font-size: .625em;
-            line-height: 1.2em;
-            letter-spacing: 0.2px;
+            @include text(1.2em, $text-grey, .625em, 400, 0.2px, $ff: false, $tt: false);
             margin-left: 8px;
             a{
                 color: #E4C086;
@@ -356,31 +256,21 @@
         }
     }
     .create__btn{
-        border-radius: 10px;
-        border: none;
-        background: #1C1C1C;
-        padding: 16px;
-        color: #282828;
-        font-family: 'Stolzl';
-        font-size: .875em;
-        letter-spacing: 0.28px;
+        @include button($btn-locked, 16px, 16px, 10px);
+        @include text(1em, #282828, .875em, 400, 0.28px, $ff: false, $tt: false);
         width: 100%;
         margin-top: 32px;
         cursor: not-allowed;
         &.active{
-            background: #E4C086;
+            background: $btn-gold;
             cursor: pointer;
             &:hover{
-                background: #FCFCFC;
+                background: $btn-hover;
             }
         }
     }
     .social__title{
-        color: #FCFCFC;
-        font-family: 'Stolzl';
-        font-size: .75em;
-        line-height: 1.33em;
-        letter-spacing: 0.36px;
+        @include text(1.33em, $text-white, .75em, 400, 0.36px, $ff: false, $tt: false);
         margin-top: 32px;
     }
 </style>

@@ -51,38 +51,29 @@
         overflow: hidden;
     }
     .gift--text__wrapper{
+        @include text(1.2em, #FFF, 3.75em, 400, 0, $ff: true, $tt: true);
         max-width: 485px;
         margin: 54px 0;
-        color: #FFF;
-        font-size: 3.75em;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 1.2em;
-        text-transform: uppercase;
         .gold--text{
-            color: #EBBE7D;
+            color: $text-gold;
             font-weight: 700;
         }
     }
     .cashback--text__wrapper{
-        color:  #999;
-        font-size: 1.5em;
-        font-weight: 400;
-        line-height: 1.33em;
-        text-transform: uppercase;
+        @include text(1.33em, $text-grey, 1.5em, 400, normal, $ff: true, $tt: true);
     }
     .become--vip{
+        @include button($btn-gold, 15px, 56px, 56px);
         margin-top: 101px;
-        border-radius: 56px;
-        background: #EBBE7D;
-        padding: 15px 56px;
         backdrop-filter: blur(10px);
-        border: none;
         color: #0B0B0A;
         font-size: 1.25em;
         font-weight: 700;
         line-height: 1.25em;
         text-transform: uppercase;
+        &:hover{
+            background: $btn-hover;
+        }
     }
     .diamond--1{
         position: absolute;
@@ -100,11 +91,13 @@
         position: absolute;
         bottom: 11.22%;
         right: 10.85%;
+        animation: lightAnim 3.5s linear infinite;
     }
     .light--2{
         position: absolute;
         top: 11%;
         right: 6%;
+        animation: lightAnim 2.5s linear infinite;
     }
 
     @keyframes diamondAnim {
@@ -116,6 +109,18 @@
 	  	}
 		100% {
 			filter: drop-shadow(0 0 0 rgb(255, 243, 178)); scale: (.9);
+	  	}
+	}
+
+    @keyframes lightAnim {
+	  	0% {
+            opacity: 0;
+	  	}
+        75% {
+			opacity: 1;
+	  	}
+		100% {
+			opacity: 0;
 	  	}
 	}
 </style>

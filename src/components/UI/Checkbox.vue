@@ -6,6 +6,7 @@
     const activeCheckbox = (e: Event) => {
         const element = e.target as HTMLInputElement
         const elementParent = element.parentElement as HTMLDivElement
+        console.log(element.checked)
         if(element.checked){
             elementParent.classList.remove('active')
             emit('checkboxValid', false)
@@ -18,7 +19,7 @@
 
 <template>
     <div class="container">
-        <input type="checkbox" @click="activeCheckbox"> 
+        <input type="checkbox" checked @click="activeCheckbox"> 
     </div>
 </template>
 

@@ -98,17 +98,10 @@
         background: #131313;
         padding: 16px 16px 16px 40px;
         width: 100%;
+        @include text(1.1em, $text-white, .825em, 400, 0.28px, $ff: false, $tt: false);
         transition: all .25s ease;
-        color: #FCFCFC;
-        font-family: 'Stolzl';
-        font-size: .825em;
-        line-height: 1.1em;
-        letter-spacing: 0.28px;
         &::placeholder{
-            color: #999;
-            font-family: 'Stolzl';
-            font-size: .875em;
-            letter-spacing: 0.28px;
+            @include text(1.1em, $text-grey, .825em, 400, 0.38px, $ff: false, $tt: false);
         }
         &:hover{
             border: 1px solid #FCFCFC;
@@ -145,10 +138,7 @@
                 left: 20px;
                 background: #131313;
                 padding: 0 4px;
-                color: #999;
-                font-family: 'Stolzl';
-                font-size: .625em;
-                letter-spacing: 0.2px;
+                @include text(1em, $text-grey, .625em, 400, 0.2px, $ff: false, $tt: false);
             }
         }
         &.active__error{
@@ -162,12 +152,8 @@
                 bottom: -7px;
                 right: 12px;
                 padding: 0 4px;
-                color: #FD4646;
+                @include text(1.6em, #FD4646, .625em, 400, 0.2px, $ff: false, $tt: false);
                 background: #131313;
-                font-family: 'Stolzl';
-                font-size: .625em;
-                line-height: 1.6em;
-                letter-spacing: 0.2px;
             }
         }
     }

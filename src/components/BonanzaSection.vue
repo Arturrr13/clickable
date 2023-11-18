@@ -31,30 +31,15 @@
         height: 100%;
     }
     .logo{
-        width: 217px;
-        height: 111px;
-        position: absolute;
-        left: calc(50% - 108.5px);
-        top: 12.5%;
-        img{
-            width: 100%;
-        }
+        @include bonanzaEl(217px, 111px, 12.5%, none, none, calc(50% - 108.5px), $pos: 'tl');
+        width: 100%;
     }
     .bomb{
-        position: absolute;
-        right: -218px;
-        top: -77px;
-        max-width: 767px;
-        width: 100%;
+        @include bonanzaEl(767px, 767px, -77px, none, -218px, none, $pos: 'tr');
         animation: bombAnim 25s linear infinite;
-        img{
-            width: 100%;
-        }
     }
     .candy{
-        position: absolute;
-        top: 47.1%;
-        left: -160px;
+        @include bonanzaEl(250px, 250px, 47.1%, none, none, -160px, $pos: 'tl');
         animation: candyAnim 75s linear infinite;
         &:hover{
             transition: all 1s ease;
@@ -66,15 +51,7 @@
         }
     }
     .girl{
-        position: absolute;
-        bottom: -31px;
-        left: 9%;
-        margin-right: 9%;
-        max-width: 610px;
-        max-height: 666px;
-        img{
-            width: 100%;
-        }
+        @include bonanzaEl(610px, 666px, none, -31px, none, 9%, $pos: 'bl');
     }
 
     @keyframes bombAnim {
